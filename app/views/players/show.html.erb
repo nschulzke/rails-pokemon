@@ -25,5 +25,16 @@
   <%= @player.background %>
 </p>
 
+<div>
+<strong>Pokemon:</strong>
+<ul>
+  <% @player.pokemons.each do |pokemon| %>
+    <li>
+      <%= pokemon.nick_and_name %>
+    </li>
+  <% end %>
+</ul>
+</div>
+
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>

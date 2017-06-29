@@ -28,12 +28,17 @@
 
   <div class="field">
     <%= f.label :element %>
-    <%= f.number_field :element %>
+    <%= f.select :element, BasePokemon.elements.keys.map { |element| [ element, element ] } %>
   </div>
 
   <div class="field">
     <%= f.label :background %>
     <%= f.text_field :background %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :moves %>
+    <%= f.select :move_ids, Move.all.map { |move| [ move.name_and_element, move.id ] }, {}, :multiple => true %>
   </div>
 
   <div class="actions">

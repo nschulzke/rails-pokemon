@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= f.label :player_id %>
-    <%= f.text_field :player_id %>
+    <%= f.select :player_id, Player.all.map { |player| [ player.name, player.id ] } %>
   </div>
-
+  
   <div class="field">
     <%= f.label :base_pokemon_id %>
-    <%= f.text_field :base_pokemon_id %>
+    <%= f.select :base_pokemon_id, BasePokemon.all.map { |pokemon| [ pokemon.name, pokemon.id ] } %>
   </div>
 
   <div class="field">

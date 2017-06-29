@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :element %>
-    <%= f.number_field :element %>
+    <%= f.select :element, Move.elements.keys.map { |element| [ element, element ] } %>
   </div>
 
   <div class="field">

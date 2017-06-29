@@ -25,5 +25,15 @@
   <%= @base_pokemon.background %>
 </p>
 
+<div>
+<strong>Moves:</strong>
+<ul>
+  <% @base_pokemon.moves.each do |move| %>
+    <li>
+      <%= move.name_and_element %>
+    </li>
+  <% end %>
+</ul>
+</div>
 <%= link_to 'Edit', edit_base_pokemon_path(@base_pokemon) %> |
 <%= link_to 'Back', base_pokemons_path %>

@@ -69,6 +69,6 @@ class BasePokemonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def base_pokemon_params
-      params.require(:base_pokemon).permit(:name, :health, :power, :element, :background)
+      params.require(:base_pokemon).permit(:name, :health, :power, :element, :background, :move_ids => [])
     end
 end

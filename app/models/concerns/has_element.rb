@@ -2,6 +2,6 @@ module HasElement
   extend ActiveSupport::Concern
   
   included do
-    enum element: { fire: 0, earth: 1, water: 2, leaf: 3, normal: 4 }
+    enum element: { fire: 0, earth: 1, air: 2, water: 3 }
   end
 end

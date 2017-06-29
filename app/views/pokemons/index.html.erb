@@ -19,8 +19,8 @@
     <% @pokemons.each do |pokemon| %>
       <tr>
         <td><%= pokemon.nickname %></td>
-        <td><%= pokemon.player %></td>
-        <td><%= pokemon.base_pokemon %></td>
+        <td><%= pokemon.player.name %></td>
+        <td><%= pokemon.base_pokemon.name %></td>
         <td><%= pokemon.status %></td>
         <td><%= pokemon.health %></td>
         <td><%= pokemon.power %></td>
