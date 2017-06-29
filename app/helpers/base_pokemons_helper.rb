@@ -1,0 +1,2 @@
+module BasePokemonsHelper
+end

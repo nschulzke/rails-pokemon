@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @base_pokemon.name %>
+</p>
+
+<p>
+  <strong>Health:</strong>
+  <%= @base_pokemon.health %>
+</p>
+
+<p>
+  <strong>Power:</strong>
+  <%= @base_pokemon.power %>
+</p>
+
+<p>
+  <strong>Element:</strong>
+  <%= @base_pokemon.element %>
+</p>
+
+<p>
+  <strong>Background:</strong>
+  <%= @base_pokemon.background %>
+</p>
+
+<%= link_to 'Edit', edit_base_pokemon_path(@base_pokemon) %> |
+<%= link_to 'Back', base_pokemons_path %>
