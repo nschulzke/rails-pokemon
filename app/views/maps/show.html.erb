@@ -1,0 +1,11 @@
+<table class="map">
+  <% @map.map.each_with_index do |row, row_index| %>
+    <tr>
+      <% row.each_with_index do |col, col_index| %>
+        <td>
+          <%= col %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

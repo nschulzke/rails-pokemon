@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :maps
   root to: 'game#menu'
 
   get '/map', to: 'game#map'

@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Maps</h1>
+<ul>
+    <% @maps.each do |move| %>
+      <li>
+        <%= link_to move.name, move %>
+      </li>
+    <% end %>
+</ul>
