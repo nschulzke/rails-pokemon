@@ -1,0 +1,32 @@
+<%= form_for(tile) do |f| %>
+  <% if tile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tile.errors.count, "error") %> prohibited this tile from being saved:</h2>
+
+      <ul>
+      <% tile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :background %>
+    <%= f.text_field :background %>
+  </div>
+
+  <div class="field">
+    <%= f.label :passable %>
+    <%= f.check_box :passable %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

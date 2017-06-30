@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tiles
   resources :maps
   root to: 'game#menu'
 

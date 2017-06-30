@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630220427) do
+ActiveRecord::Schema.define(version: 20170630223715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,14 @@ ActiveRecord::Schema.define(version: 20170630220427) do
     t.datetime "updated_at",      null: false
     t.index ["base_pokemon_id"], name: "index_pokemons_on_base_pokemon_id", using: :btree
     t.index ["player_id"], name: "index_pokemons_on_player_id", using: :btree
+  end
+
+  create_table "tiles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "background"
+    t.boolean  "passable"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "base_pokemons_moves", "base_pokemons"

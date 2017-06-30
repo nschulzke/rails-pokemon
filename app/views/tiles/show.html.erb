@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tile.name %>
+</p>
+
+<p>
+  <strong>Background:</strong>
+  <%= @tile.background %>
+</p>
+
+<p>
+  <strong>Passable:</strong>
+  <%= @tile.passable %>
+</p>
+
+<%= link_to 'Edit', edit_tile_path(@tile) %> |
+<%= link_to 'Back', tiles_path %>
