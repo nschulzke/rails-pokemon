@@ -1,2 +1,11 @@
-<h1>Game#map</h1>
-<p>Find me in app/views/game/map.html.erb</p>
+<table class="map">
+  <% @map.each_with_index do |row, row_index| %>
+    <tr>
+      <% row.each_with_index do |col, col_index| %>
+        <td>
+          <%= col %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
