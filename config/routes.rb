@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'game/menu'
+  root to: 'game#menu'
 
-  get 'game/map'
+  get '/map', to: 'game#map'
 
-  get 'game/encounter'
+  get '/encounter', to: 'game#encounter'
 
   resources :pokemons
   resources :moves
