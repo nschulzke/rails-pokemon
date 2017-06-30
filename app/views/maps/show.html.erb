@@ -2,8 +2,8 @@
   <% @map.map.each_with_index do |row, row_index| %>
     <tr>
       <% row.each_with_index do |col, col_index| %>
-        <td>
-          <%= col %>
+        <td style="background:<%= col.background %>">
+          <%= col.id %>
         </td>
       <% end %>
     </tr>
