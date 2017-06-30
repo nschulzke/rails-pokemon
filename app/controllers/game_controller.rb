@@ -1,4 +1,6 @@
 class GameController < ApplicationController
+  layout 'game'
+  
   def menu
   end
 
