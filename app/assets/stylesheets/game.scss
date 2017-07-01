@@ -5,9 +5,11 @@
 table.map {
   border-collapse: collapse;
   td {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border: 1px solid black;
     text-align: center;
+    user-select: none;
+    cursor: default;
   }
 }
