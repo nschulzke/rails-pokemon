@@ -9,10 +9,8 @@ class Player < ApplicationRecord
   def self.players_map(map)
     map = Array.new(map.length) { Array.new(map.first.length) }
     all.each do |player|
-      puts player.name, player.y_pos, player.x_pos
       map[player.y_pos][player.x_pos] = player
     end
-    puts map
     map
   end
 end
