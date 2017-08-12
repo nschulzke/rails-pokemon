@@ -6,6 +6,10 @@ class Map < ApplicationRecord
     Map.create(name: name, map: map)
   end
 
+  def passable? x_pos, y_pos
+    return tiles[y_pos][x_pos].passable?
+  end
+
   def wall(tile: Tile.not_passable.first)
     map.first.map! { tile.id }
     map.last.map! { tile.id }

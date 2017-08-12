@@ -40,5 +40,10 @@ RSpec.describe Map, type: :model do
       expect(@map.map.first.first).to be(Tile.last.id)
       expect(@map.map.last.last).to be(Tile.last.id)
     end
+
+    it "identifies whether a tile is walkable" do
+      @map.wall(tile: Tile.not_passable.last)
+      expect(@map.passable?(0, 0)).to be(false)
+    end
   end
 end
