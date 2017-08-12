@@ -40,11 +40,15 @@ class Map < ApplicationRecord
 
   private
     def build_tiles_hash
-      tiles_hash = Hash.new
+      tile_ids = Array.new
       map.each do |row|
         row.each do |tile_id|
-          tiles_hash[tile_id] ||= Tile.find(tile_id)
+          tile_ids.push(tile_id)
         end
+      end
+      tiles_hash = Hash.new
+      Tile.find(tile_ids).each do |tile|
+        tiles_hash[tile.id] = tile
       end
       tiles_hash
     end
