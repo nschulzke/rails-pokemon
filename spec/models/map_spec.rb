@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Map, type: :model do
   context "with a blank map" do
-    before :each do
+    before :all do
       @map = Map.create_blank(name: "Map", tile: Tile.first)
     end
 
