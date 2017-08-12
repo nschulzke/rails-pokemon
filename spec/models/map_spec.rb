@@ -26,6 +26,7 @@ RSpec.describe Map, type: :model do
       end
     end
   end
+  
   context "using map modifiers" do
     before :each do
       @map = Map.create_blank(name: "Map", tile: Tile.first)
