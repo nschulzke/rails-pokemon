@@ -1,9 +1,9 @@
 class Map < ApplicationRecord
   serialize :map
 
-  def self.blank(width: 10, height: 10)
-    default_tile = Tile.passable.first
-    Array.new(height) { Array.new(width) { default_tile.id } }
+  def self.create_blank(name: name, width: 10, height: 10, tile: Tile.passable.first)
+    map = Array.new(height) { Array.new(width) { tile.id } }
+    Map.create(name: name, map: map)
   end
 
   def wall(tile = Tile.not_passable.first)
@@ -21,8 +21,8 @@ class Map < ApplicationRecord
     tiles_hash[tile_id]
   end
 
-  def map_tiles
-    @map_tiles ||= build_map_tiles
+  def tiles
+    @tiles ||= build_tiles
   end
 
   private
@@ -36,7 +36,7 @@ class Map < ApplicationRecord
       tiles_hash
     end
 
-    def build_map_tiles
+    def build_tiles
       map_tiles = Array.new(map.length) { Array.new(map.first.length) }
       map.each_with_index do |row, row_num|
         row.each_with_index do |tile_id, col_num|

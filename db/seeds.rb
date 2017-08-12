@@ -7,4 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Tile.create(name: "Ocean", background: "blue", passable: false)
 Tile.create(name: "Grassland", background: "green", passable: true)
-Map.create(name: "Main Map", map: Map.blank).wall
+Map.create_blank(name: "Main Map").wall
