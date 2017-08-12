@@ -6,7 +6,7 @@ class GameController < ApplicationController
 
   def map
     @map = Map.first
-    @players_map = Player.players_map @map
+    @players_map = @map.players_map
   end
 
   def encounter
