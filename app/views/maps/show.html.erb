@@ -1,9 +1,9 @@
 <table class="map">
-  <% @map.map.each_with_index do |row, row_index| %>
+  <% @map.map_tiles.each do |row| %>
     <tr>
-      <% row.each_with_index do |col, col_index| %>
-        <td style="background:<%= col.background %>">
-          <%= col.id %>
+      <% row.each do |tile| %>
+        <td style="background:<%= tile.background %>">
+          <%= tile.id %>
         </td>
       <% end %>
     </tr>
