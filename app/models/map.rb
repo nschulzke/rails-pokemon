@@ -1,6 +1,15 @@
 class Map < ApplicationRecord
   serialize :map
   has_many :players
+  validates_presence_of :name, :map
+
+  after_validation do
+    if map
+      unless map.all? { |row| row.is_a?(Array) } and map.map(&:size).uniq.size == 1
+        errors.add(:map, "must be a 2d array")
+      end
+    end
+  end
 
   def self.create_blank(name: "Default", width: 10, height: 10, tile: Tile.passable.first)
     map = Array.new(height) { Array.new(width) { tile.id } }

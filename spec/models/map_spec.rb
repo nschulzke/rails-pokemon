@@ -56,4 +56,32 @@ RSpec.describe Map, type: :model do
       expect(@map.passable?(0, 0)).to be(false)
     end
   end
+
+  describe "validates" do
+    before :each do
+      @map = Map.create
+    end
+
+    it "validates presence of name" do
+      expect(@map.errors[:name]).to include("can't be blank")
+    end
+
+    it "validates presence of map" do
+      expect(@map.errors[:map]).to include("can't be blank")
+    end
+
+    it "validates that map is an array of arrays" do
+      @map.map = Array.new(10) { 10 }
+      @map.save
+      expect(@map.errors[:map]).to include("must be a 2d array")
+    end
+
+    it "validates that each row is the same length" do
+      @map.map = Array.new(2)
+      @map.map[0] = Array.new(1)
+      @map.map[1] = Array.new(2)
+      @map.save
+      expect(@map.errors[:map]).to include("must be a 2d array")
+    end
+  end
 end
