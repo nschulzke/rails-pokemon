@@ -2,6 +2,10 @@ class Player < ApplicationRecord
   enum gender: { male: 0, female: 1 }
   has_many :familiars
 
+  after_commit do
+    MapBroadcastJob.perform_later Map.first
+  end
+
   def self.at(x, y)
     where(x_pos: x, y_pos: y)
   end
