@@ -23,12 +23,12 @@ RSpec.describe MapsController, type: :controller do
     end
 
     it "assigns @map" do
-      get :show, id: @map.id
+      get :show, params: {id: @map.id}
       expect(assigns(:map)).to eq(@map)
     end
 
     it "renders the show template" do
-      get :show, id: @map.id
+      get :show, params: {id: @map.id}
       expect(response).to render_template("show")
     end
   end
