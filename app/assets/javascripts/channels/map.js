@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$( function() {
   App.map = App.cable.subscriptions.create({
     channel: "MapChannel"
   }, {

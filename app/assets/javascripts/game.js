@@ -8,8 +8,8 @@ var left  = 37;
 var up    = 38;
 var right = 39;
 var down  = 40;
-$(document).on('turbolinks:load', function() {
-  $(document).on('keydown', function(e) {
+$( function() {
+  $(document).on('keyup', function(e) {
     switch (e.keyCode) {
       case left:
         App.map.move('left'); break;
