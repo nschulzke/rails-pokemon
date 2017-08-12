@@ -22,6 +22,5 @@ class Player < ApplicationRecord
     when :right
       update x_pos: x_pos + 1 if map.passable?(x_pos, x_pos + 1)
     end
-    puts 'test'
   end
 end
