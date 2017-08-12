@@ -6,7 +6,7 @@ class Map < ApplicationRecord
     Map.create(name: name, map: map)
   end
 
-  def wall(tile = Tile.not_passable.first)
+  def wall(tile: Tile.not_passable.first)
     map.first.map! { tile.id }
     map.last.map! { tile.id }
 

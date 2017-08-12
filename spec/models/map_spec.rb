@@ -26,4 +26,17 @@ RSpec.describe Map, type: :model do
       end
     end
   end
+  context "using map modifiers" do
+    before :each do
+      @map = Map.create_blank(name: "Map", tile: Tile.first)
+    end
+
+    it "creates a wall around the edge of the map" do
+      expect(@map.map.first.first).to be(Tile.first.id)
+      expect(@map.map.last.last).to be(Tile.first.id)
+      @map.wall(tile: Tile.last)
+      expect(@map.map.first.first).to be(Tile.last.id)
+      expect(@map.map.last.last).to be(Tile.last.id)
+    end
+  end
 end
