@@ -240,7 +240,6 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.1)
-  rb-fsevent (~> 0.10.2)
   redis (~> 3.0)
   rspec-rails (~> 3.4, >= 3.4.2)
   sass-rails (~> 5.0)
