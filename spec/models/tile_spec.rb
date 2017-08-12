@@ -10,19 +10,20 @@ RSpec.describe Tile, type: :model do
   end
 
   describe "validates" do
+    before :each do
+      @tile = Tile.create
+    end
+
     it "validates presence of name" do
-      tile = Tile.create
-      expect(tile.errors[:name]).to include("can't be blank")
+      expect(@tile.errors[:name]).to include("can't be blank")
     end
 
     it "has a default background" do
-      tile = Tile.create
-      expect(tile.background).to_not be nil
+      expect(@tile.background).to be_a(String)
     end
 
     it "is passable by default" do
-      tile = Tile.create
-      expect(tile.passable).to be true
+      expect(@tile.passable).to be true
     end
   end
 end
