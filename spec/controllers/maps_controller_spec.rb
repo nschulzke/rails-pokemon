@@ -27,7 +27,7 @@ RSpec.describe MapsController, type: :controller do
       expect(assigns(:map)).to eq(@map)
     end
 
-    it "renders the index template" do
+    it "renders the show template" do
       get :show, id: @map.id
       expect(response).to render_template("show")
     end
