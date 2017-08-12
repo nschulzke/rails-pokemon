@@ -15,7 +15,8 @@ RSpec.describe Map, type: :model do
     end
 
     it "allows lookup of tiles by id" do
-      expect(@map.tile(Tile.first.id)).to be_a(Tile)
+      tile = @map.tile(Tile.first.id)
+      expect(tile).to be_a(Tile)
     end
 
     it "generates a 2d tiles array" do
@@ -26,7 +27,7 @@ RSpec.describe Map, type: :model do
       end
     end
   end
-  
+
   context "using map modifiers" do
     before :each do
       @map = Map.create_blank(name: "Map", tile: Tile.first)
