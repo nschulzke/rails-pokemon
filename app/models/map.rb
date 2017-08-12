@@ -1,5 +1,6 @@
 class Map < ApplicationRecord
   serialize :map
+  has_many :players
 
   def self.create_blank(name: "Default", width: 10, height: 10, tile: Tile.passable.first)
     map = Array.new(height) { Array.new(width) { tile.id } }

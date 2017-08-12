@@ -1,6 +1,7 @@
 class Player < ApplicationRecord
   enum gender: { male: 0, female: 1 }
   has_many :familiars
+  belongs_to :map
 
   after_commit do
     MapBroadcastJob.perform_later Map.first

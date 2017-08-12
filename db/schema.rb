@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630223715) do
+ActiveRecord::Schema.define(version: 20170812200902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 20170630223715) do
     t.string   "background"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "map_id"
+    t.index ["map_id"], name: "index_players_on_map_id", using: :btree
   end
 
   create_table "tiles", force: :cascade do |t|
@@ -83,4 +85,5 @@ ActiveRecord::Schema.define(version: 20170630223715) do
   add_foreign_key "base_familiars_moves", "moves"
   add_foreign_key "familiars", "base_familiars"
   add_foreign_key "familiars", "players"
+  add_foreign_key "players", "maps"
 end
