@@ -1,5 +1,5 @@
 <table class="map">
-  <% @map.map_tiles.each do |row| %>
+  <% @map.tiles.each do |row| %>
     <tr>
       <% row.each do |tile| %>
         <td style="background:<%= tile.background %>">
