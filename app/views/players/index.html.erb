@@ -21,7 +21,7 @@
         <td><%= player.gender %></td>
         <td><%= player.x_pos %></td>
         <td><%= player.y_pos %></td>
-        <td><%= player.background %></td>
+        <td><%= color_swatch player.background %></td>
         <td><%= link_to 'Show', player %></td>
         <td><%= link_to 'Edit', edit_player_path(player) %></td>
         <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
