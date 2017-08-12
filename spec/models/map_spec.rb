@@ -26,6 +26,16 @@ RSpec.describe Map, type: :model do
         end
       end
     end
+
+    it "generates a map of player locations" do
+      map = Map.create_blank
+      player_1 = map.players.create(x_pos: 1, y_pos: 1)
+      player_2 = map.players.create(x_pos: 2, y_pos: 2)
+
+      players_map = map.players_map
+      expect(players_map[1][1]).to eq(player_1)
+      expect(players_map[2][2]).to eq(player_2)
+    end
   end
 
   context "using map modifiers" do

@@ -30,6 +30,14 @@ class Map < ApplicationRecord
     @tiles ||= build_tiles
   end
 
+  def players_map
+    players_map = Array.new(map.length) { Array.new(map.first.length) }
+    players.each do |player|
+      players_map[player.y_pos][player.x_pos] = player
+    end
+    players_map
+  end
+
   private
     def build_tiles_hash
       tiles_hash = Hash.new
