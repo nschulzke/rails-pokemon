@@ -4,7 +4,7 @@ class Player < ApplicationRecord
   belongs_to :map
 
   after_commit do
-    MapBroadcastJob.perform_later Map.first
+    MapBroadcastJob.perform_later map
   end
 
   def self.at(x, y)
@@ -14,13 +14,14 @@ class Player < ApplicationRecord
   def move direction
     case direction
     when :up
-      update y_pos: y_pos - 1
+      update y_pos: y_pos - 1 if map.passable?(x_pos, y_pos - 1)
     when :down
-      update y_pos: y_pos + 1
+      update y_pos: y_pos + 1 if map.passable?(x_pos, y_pos + 1)
     when :left
-      update x_pos: x_pos - 1
+      update x_pos: x_pos - 1 if map.passable?(x_pos, x_pos - 1)
     when :right
-      update x_pos: x_pos + 1
+      update x_pos: x_pos + 1 if map.passable?(x_pos, x_pos + 1)
     end
+    puts 'test'
   end
 end
