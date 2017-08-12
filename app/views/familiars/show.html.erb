@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nickname:</strong>
+  <%= @familiar.nickname %>
+</p>
+
+<p>
+  <strong>Player:</strong>
+  <%= @familiar.player.name %>
+</p>
+
+<p>
+  <strong>Base familiar:</strong>
+  <%= @familiar.base_familiar.name %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @familiar.status %>
+</p>
+
+<p>
+  <strong>Health:</strong>
+  <%= @familiar.health %>
+</p>
+
+<p>
+  <strong>Power:</strong>
+  <%= @familiar.power %>
+</p>
+
+<%= link_to 'Edit', edit_familiar_path(@familiar) %> |
+<%= link_to 'Back', familiars_path %>

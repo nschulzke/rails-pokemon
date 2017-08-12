@@ -1,10 +1,10 @@
-<%= form_for(pokemon) do |f| %>
-  <% if pokemon.errors.any? %>
+<%= form_for(familiar) do |f| %>
+  <% if familiar.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(pokemon.errors.count, "error") %> prohibited this pokemon from being saved:</h2>
+      <h2><%= pluralize(familiar.errors.count, "error") %> prohibited this familiar from being saved:</h2>
 
       <ul>
-      <% pokemon.errors.full_messages.each do |message| %>
+      <% familiar.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -22,8 +22,8 @@
   </div>
   
   <div class="field">
-    <%= f.label :base_pokemon_id %>
-    <%= f.select :base_pokemon_id, BasePokemon.all.map { |pokemon| [ pokemon.name, pokemon.id ] } %>
+    <%= f.label :base_familiar_id %>
+    <%= f.select :base_familiar_id, BaseFamiliar.all.map { |familiar| [ familiar.name, familiar.id ] } %>
   </div>
 
   <div class="field">

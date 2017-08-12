@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20170630223715) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "base_pokemons", force: :cascade do |t|
+  create_table "base_familiars", force: :cascade do |t|
     t.string   "name"
     t.integer  "health"
     t.integer  "power"
@@ -25,11 +25,24 @@ ActiveRecord::Schema.define(version: 20170630223715) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "base_pokemons_moves", id: false, force: :cascade do |t|
-    t.integer "base_pokemon_id"
+  create_table "base_familiars_moves", id: false, force: :cascade do |t|
+    t.integer "base_familiar_id"
     t.integer "move_id"
-    t.index ["base_pokemon_id"], name: "index_base_pokemons_moves_on_base_pokemon_id", using: :btree
-    t.index ["move_id"], name: "index_base_pokemons_moves_on_move_id", using: :btree
+    t.index ["base_familiar_id"], name: "index_base_familiars_moves_on_base_familiar_id", using: :btree
+    t.index ["move_id"], name: "index_base_familiars_moves_on_move_id", using: :btree
+  end
+
+  create_table "familiars", force: :cascade do |t|
+    t.string   "nickname"
+    t.integer  "player_id"
+    t.integer  "base_familiar_id"
+    t.integer  "status"
+    t.integer  "health"
+    t.integer  "power"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["base_familiar_id"], name: "index_familiars_on_base_familiar_id", using: :btree
+    t.index ["player_id"], name: "index_familiars_on_player_id", using: :btree
   end
 
   create_table "maps", force: :cascade do |t|
@@ -58,19 +71,6 @@ ActiveRecord::Schema.define(version: 20170630223715) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "pokemons", force: :cascade do |t|
-    t.string   "nickname"
-    t.integer  "player_id"
-    t.integer  "base_pokemon_id"
-    t.integer  "status"
-    t.integer  "health"
-    t.integer  "power"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["base_pokemon_id"], name: "index_pokemons_on_base_pokemon_id", using: :btree
-    t.index ["player_id"], name: "index_pokemons_on_player_id", using: :btree
-  end
-
   create_table "tiles", force: :cascade do |t|
     t.string   "name"
     t.string   "background"
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 20170630223715) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "base_pokemons_moves", "base_pokemons"
-  add_foreign_key "base_pokemons_moves", "moves"
-  add_foreign_key "pokemons", "base_pokemons"
-  add_foreign_key "pokemons", "players"
+  add_foreign_key "base_familiars_moves", "base_familiars"
+  add_foreign_key "base_familiars_moves", "moves"
+  add_foreign_key "familiars", "base_familiars"
+  add_foreign_key "familiars", "players"
 end

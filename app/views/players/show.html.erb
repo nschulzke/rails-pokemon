@@ -26,11 +26,11 @@
 </p>
 
 <div>
-<strong>Pokemon:</strong>
+<strong>Familiar:</strong>
 <ul>
-  <% @player.pokemons.each do |pokemon| %>
+  <% @player.familiars.each do |familiar| %>
     <li>
-      <%= pokemon.nick_and_name %>
+      <%= familiar.nick_and_name %>
     </li>
   <% end %>
 </ul>

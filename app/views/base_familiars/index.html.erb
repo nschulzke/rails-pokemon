@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Base Familiars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Health</th>
+      <th>Power</th>
+      <th>Element</th>
+      <th>Background</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @base_familiars.each do |base_familiar| %>
+      <tr>
+        <td><%= base_familiar.name %></td>
+        <td><%= base_familiar.health %></td>
+        <td><%= base_familiar.power %></td>
+        <td><%= base_familiar.element %></td>
+        <td><%= base_familiar.background %></td>
+        <td><%= link_to 'Show', base_familiar %></td>
+        <td><%= link_to 'Edit', edit_base_familiar_path(base_familiar) %></td>
+        <td><%= link_to 'Destroy', base_familiar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Base Familiar', new_base_familiar_path %>
