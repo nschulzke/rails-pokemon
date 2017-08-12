@@ -1,7 +1,7 @@
 <table class="map">
-  <% @map.tiles.each_with_index do |row, col_index| %>
+  <% @map.tiles.each_with_index do |row, row_index| %>
     <tr>
-      <% row.each_with_index do |tile, row_index| %>
+      <% row.each_with_index do |tile, col_index| %>
         <td style="background:<%= tile.background %>">
           <% player = @players_map[row_index][col_index] %>
           <% if player %>
