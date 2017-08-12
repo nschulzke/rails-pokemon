@@ -13,4 +13,17 @@ class Player < ApplicationRecord
     end
     map
   end
+
+  def move direction
+    case direction
+    when :up
+      update y_pos: y_pos - 1
+    when :down
+      update y_pos: y_pos + 1
+    when :left
+      update x_pos: x_pos - 1
+    when :right
+      update x_pos: x_pos + 1
+    end
+  end
 end
