@@ -25,6 +25,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'guard', '~> 2.14', '>= 2.14.1'
   gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.2'
 end
 
 group :development do
