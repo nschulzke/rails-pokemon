@@ -1,7 +1,7 @@
 class Map < ApplicationRecord
   serialize :map
 
-  def self.create_blank(name: name, width: 10, height: 10, tile: Tile.passable.first)
+  def self.create_blank(name: "Default", width: 10, height: 10, tile: Tile.passable.first)
     map = Array.new(height) { Array.new(width) { tile.id } }
     Map.create(name: name, map: map)
   end
