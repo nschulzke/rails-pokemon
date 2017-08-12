@@ -1,8 +1,12 @@
 <table class="map">
-  <% @map.tiles.each do |row| %>
+  <% @map.tiles.each_with_index do |row, col_index| %>
     <tr>
-      <% row.each do |tile| %>
+      <% row.each_with_index do |tile, row_index| %>
         <td style="background:<%= tile.background %>">
+          <% player = @players_map[row_index][col_index] %>
+          <% if player %>
+            <span style="color:<%= player.background %>">&#9608;</span>
+          <% end %>
         </td>
       <% end %>
     </tr>
