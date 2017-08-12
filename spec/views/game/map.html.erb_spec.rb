@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "game/map", type: :view do
   context "with two players" do
-    before :all do
+    before :each do
         @player_1 = Player.create(x_pos: 1, y_pos: 1, background: 'orange')
         @player_2 = Player.create(x_pos: 2, y_pos: 2, background: 'magenta')
         @map = Map.create_blank

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe MapsController, type: :controller do
   describe "GET index" do
-    before :all do
+    before :each do
       @map = Map.create_blank(name: "Map")
     end
 
